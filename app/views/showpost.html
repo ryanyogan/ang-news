@@ -1,8 +1,8 @@
 <div class="container posts-page">
   <div class="post row">
     <div class="col-xs-1">
-      <div class="vote up"><span ng-hide="downVoted(post)" ng-click="upVotePost(postId, upVoted(post))">&#x25B2;</span></div>
-      <div class="vote down"><span ng-hide="upVoted(post)" ng-click="downVotePost(postId, downVoted(post))">&#x25BC;</span></div>
+      <div class="vote up"><span ng-hide="downVoted(post)" ng-click="upVotePost(upVoted())">&#x25B2;</span></div>
+      <div class="vote down"><span ng-hide="upVoted(post)" ng-click="downVotePost(downVoted())">&#x25BC;</span></div>
     </div>
     <div class="col-md-9 col-xs-11">
       <div class="info">
@@ -12,6 +12,8 @@
         </a>
       </div>
       <div>
+        <span>{{ post.score || 0 }} votes</span>
+        &dash;
         <span>submitted by <a href="#/users/{{ post.owner }}">{{ post.owner }}</a></span>
       </div>
     </div>
